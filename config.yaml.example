@@ -8,10 +8,12 @@ server:
   
   # Timeout for port checks (in seconds)
   # This value will be parsed as a duration (e.g., 2s, 5s, 100ms)
+  # Can be overridden per-check basis
   timeout: 2s
 
 # Port Checks Configuration
 # Define all ports that should be monitored
+# Each check can optionally specify its own timeout, overriding the server default
 checks:
   # SMTP - Mail Transfer
   - host: "10.0.0.2"
@@ -55,6 +57,13 @@ checks:
     name: "ManageSieve"
     description: "Sieve Mail Filtering"
 
+  # Example with custom timeout - slow/remote service
+  # - host: "remote.example.com"
+  #   port: 8080
+  #   name: "Remote Service"
+  #   description: "Remote API (needs longer timeout)"
+  #   timeout: 10s
+
 # Examples of other services you might want to monitor:
 #
 # Database
@@ -63,11 +72,12 @@ checks:
 #    name: "PostgreSQL"
 #    description: "PostgreSQL Database"
 #
-# Redis
+# Fast local service with short timeout
 #  - host: "localhost"
 #    port: 6379
 #    name: "Redis"
 #    description: "Redis Cache"
+#    timeout: 500ms
 #
 # Application Server
 #  - host: "localhost"

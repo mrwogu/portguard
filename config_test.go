@@ -196,3 +196,62 @@ checks:
 		}
 	}
 }
+
+func TestLoadConfigWithPerCheckTimeout(t *testing.T) {
+	configData := `
+server:
+  port: "8888"
+  timeout: 2s
+checks:
+  - host: "localhost"
+    port: 8080
+    name: "Default Timeout Service"
+    description: "Uses server timeout"
+  - host: "remote.example.com"
+    port: 443
+    name: "Slow Service"
+    description: "Needs custom timeout"
+    timeout: 10s
+  - host: "fast.local"
+    port: 6379
+    name: "Fast Service"
+    description: "Quick check"
+    timeout: 500ms
+`
+
+	tmpDir := t.TempDir()
+	configPath := filepath.Join(tmpDir, "config.yaml")
+	if err := os.WriteFile(configPath, []byte(configData), 0644); err != nil {
+		t.Fatalf("Failed to create test config file: %v", err)
+	}
+
+	cfg, err := loadConfig(configPath)
+	if err != nil {
+		t.Fatalf("Unexpected error: %v", err)
+	}
+
+	// Verify server config
+	if cfg.Server.Timeout != 2*time.Second {
+		t.Errorf("Server.Timeout = %v, want 2s", cfg.Server.Timeout)
+	}
+
+	// Verify checks
+	if len(cfg.Checks) != 3 {
+		t.Fatalf("Number of checks = %d, want 3", len(cfg.Checks))
+	}
+
+	// First check: no custom timeout (should be 0)
+	if cfg.Checks[0].Timeout != 0 {
+		t.Errorf("Check[0].Timeout = %v, want 0 (uses server default)", cfg.Checks[0].Timeout)
+	}
+
+	// Second check: custom timeout of 10s
+	if cfg.Checks[1].Timeout != 10*time.Second {
+		t.Errorf("Check[1].Timeout = %v, want 10s", cfg.Checks[1].Timeout)
+	}
+
+	// Third check: custom timeout of 500ms
+	if cfg.Checks[2].Timeout != 500*time.Millisecond {
+		t.Errorf("Check[2].Timeout = %v, want 500ms", cfg.Checks[2].Timeout)
+	}
+}

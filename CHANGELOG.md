@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- Per-check timeout configuration: Each check entry can now specify its own timeout value
+- When a check-specific timeout is set, it overrides the global server timeout for that check
+- Support for different timeout values per service (e.g., 500ms for fast local services, 10s for remote APIs)
+- Added `timeout` field to `PortCheck` struct with `omitempty` YAML tag
+- Updated configuration examples to demonstrate per-check timeout usage
+
+### Changed
+- Health check logic now uses check-specific timeout when available, falling back to server timeout
+- Enhanced example configurations with timeout demonstrations
+
+### Documentation
+- Updated README.md with per-check timeout example
+- Added new "Per-Check Timeout Configuration" section in EXAMPLES.md
+- Updated config.yaml.example with comments about per-check timeouts
+- Created config-timeout-demo.yaml demonstrating various timeout scenarios
+
 ## [1.0.0] - 2025-10-26
 
 ### Added

@@ -39,13 +39,20 @@ nano /etc/portguard/config.yaml
 ```yaml
 server:
   port: "8888"
-  timeout: 2s
+  timeout: 2s  # Default timeout for all checks
 
 checks:
   - host: "mail.example.com"
     port: 25
     name: "SMTP"
     description: "Mail Transfer Protocol"
+    # Uses default timeout (2s)
+  
+  - host: "remote-api.example.com"
+    port: 443
+    name: "Remote API"
+    description: "Remote API endpoint"
+    timeout: 10s  # Custom timeout for this check
 ```
 
 **📖 See [Examples](docs/EXAMPLES.md) for more configuration examples (web apps, databases, Kubernetes, microservices).**

@@ -19,11 +19,13 @@ type ServerConfig struct {
 
 // PortCheck defines a single port to monitor.
 // It includes the target host, port number, and descriptive information.
+// An optional Timeout can be specified per check, otherwise the server timeout is used.
 type PortCheck struct {
-	Host        string `yaml:"host" json:"host"`
-	Port        int    `yaml:"port" json:"port"`
-	Name        string `yaml:"name" json:"name"`
-	Description string `yaml:"description" json:"description"`
+	Host        string        `yaml:"host" json:"host"`
+	Port        int           `yaml:"port" json:"port"`
+	Name        string        `yaml:"name" json:"name"`
+	Description string        `yaml:"description" json:"description"`
+	Timeout     time.Duration `yaml:"timeout,omitempty" json:"timeout,omitempty"`
 }
 
 // HealthStatus represents the overall health check response.
