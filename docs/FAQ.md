@@ -76,6 +76,83 @@ server:
 
 Not yet. PortGuard currently only supports TCP ports. UDP support is on the roadmap.
 
+## Security
+
+### How do I secure PortGuard endpoints?
+
+PortGuard supports HTTP Basic Authentication. Enable it in your config:
+
+```yaml
+server:
+  port: "8888"
+  timeout: 2s
+  auth:
+    enabled: true
+    username: "admin"
+    password: "your-secure-password"
+```
+
+When authentication is enabled, all endpoints (`/health`, `/live`, `/`) require valid credentials.
+
+### Is authentication required?
+
+No, authentication is **disabled by default**. Enable it only when needed:
+
+```yaml
+auth:
+  enabled: false  # Default - no authentication required
+```
+
+### How secure is HTTP Basic Auth?
+
+HTTP Basic Auth sends credentials as base64-encoded strings. For production:
+
+1. **Always use HTTPS** - Deploy behind a reverse proxy (nginx, Traefik, Caddy) with TLS
+2. **Use strong passwords** - Generate random, long passwords
+3. **Rotate credentials** - Change passwords periodically
+4. **Use secret management** - Store credentials in environment variables or secret managers
+
+Example with environment variables:
+
+```bash
+# Store password securely
+export PORTGUARD_PASSWORD="$(openssl rand -base64 32)"
+
+# Use in config (requires templating or script to inject)
+```
+
+### Can I use different authentication for different endpoints?
+
+No, currently all endpoints share the same authentication settings. This is intentional to keep the configuration simple.
+
+### Should I enable authentication for Kubernetes health probes?
+
+It depends on your security requirements:
+
+- **Without auth**: Simpler, works out-of-the-box with Kubernetes
+- **With auth**: More secure, requires creating a Secret and configuring probes
+
+Example Kubernetes probe with authentication:
+
+```yaml
+livenessProbe:
+  httpGet:
+    path: /live
+    port: 8888
+    httpHeaders:
+    - name: Authorization
+      value: Basic YWRtaW46cGFzc3dvcmQ=  # base64 encoded "admin:password"
+```
+
+Better approach - use a Secret:
+
+```bash
+# Create secret
+kubectl create secret generic portguard-auth \
+  --from-literal=username=admin \
+  --from-literal=password=secure-password
+```
+
 ## Deployment
 
 ### How do I install PortGuard?

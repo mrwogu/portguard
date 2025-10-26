@@ -29,15 +29,21 @@ func main() {
 		log.Fatal("No port checks configured. Please add checks to the configuration file.")
 	}
 
-	http.HandleFunc("/health", healthHandler(cfg))
-	http.HandleFunc("/live", liveHandler)
-	http.HandleFunc("/", rootHandler(cfg))
+	// Wrap handlers with authentication middleware
+	http.HandleFunc("/health", basicAuthMiddleware(cfg, healthHandler(cfg)))
+	http.HandleFunc("/live", basicAuthMiddleware(cfg, liveHandler))
+	http.HandleFunc("/", basicAuthMiddleware(cfg, rootHandler(cfg)))
 
 	listenAddr := ":" + cfg.Server.Port
 
 	log.Printf("PortGuard v%s starting...", appVersion)
 	log.Printf("Configuration loaded from: %s", *configPath)
 	log.Printf("Monitoring %d ports with %s timeout", len(cfg.Checks), cfg.Server.Timeout)
+	if cfg.Server.Auth.Enabled && cfg.Server.Auth.Username != "" && cfg.Server.Auth.Password != "" {
+		log.Printf("HTTP Basic Authentication: ENABLED (username: %s)", cfg.Server.Auth.Username)
+	} else {
+		log.Printf("HTTP Basic Authentication: DISABLED")
+	}
 	log.Printf("HTTP server listening on %s", listenAddr)
 	log.Printf("Endpoints:")
 	log.Printf("  - http://localhost%s/health (detailed JSON status)", listenAddr)

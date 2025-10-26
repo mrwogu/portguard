@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- HTTP Basic Authentication support for securing endpoints
+  - Optional authentication with `enabled`, `username`, and `password` configuration
+  - All endpoints (`/health`, `/live`, `/`) protected when authentication is enabled
+  - Constant-time comparison to prevent timing attacks
+  - Returns 401 Unauthorized with `WWW-Authenticate` header for invalid credentials
+  - Authentication is disabled by default for backward compatibility
+- Comprehensive test suite for authentication middleware (7 test cases)
+- Documentation for authentication in FAQ.md and EXAMPLES.md
 - Per-check timeout configuration: Each check entry can now specify its own timeout value
 - When a check-specific timeout is set, it overrides the global server timeout for that check
 - Support for different timeout values per service (e.g., 500ms for fast local services, 10s for remote APIs)
@@ -15,10 +23,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated configuration examples to demonstrate per-check timeout usage
 
 ### Changed
+- Enhanced `ServerConfig` struct with `AuthConfig` for authentication settings
+- Updated handlers to use `basicAuthMiddleware` wrapper
+- Startup logging now indicates authentication status
 - Health check logic now uses check-specific timeout when available, falling back to server timeout
 - Enhanced example configurations with timeout demonstrations
 
+### Security
+- Uses `crypto/subtle.ConstantTimeCompare` to prevent timing attacks on password comparison
+- Supports HTTP Basic Auth over HTTPS when deployed behind reverse proxy
+
 ### Documentation
+- Added security section in FAQ.md with authentication best practices
+- Added secured configuration example in EXAMPLES.md
+- Updated README.md to list authentication as a feature
+- Updated config.yaml.example with authentication configuration options
 - Updated README.md with per-check timeout example
 - Added new "Per-Check Timeout Configuration" section in EXAMPLES.md
 - Updated config.yaml.example with comments about per-check timeouts

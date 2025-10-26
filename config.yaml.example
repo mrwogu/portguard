@@ -10,6 +10,20 @@ server:
   # This value will be parsed as a duration (e.g., 2s, 5s, 100ms)
   # Can be overridden per-check basis
   timeout: 2s
+  
+  # HTTP Basic Authentication (optional)
+  # When enabled, all endpoints will require authentication
+  # Default: disabled
+  auth:
+    enabled: false
+    username: ""
+    password: ""
+  
+  # Example with authentication enabled:
+  # auth:
+  #   enabled: true
+  #   username: "admin"
+  #   password: "secure-password-here"
 
 # Port Checks Configuration
 # Define all ports that should be monitored

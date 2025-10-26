@@ -14,7 +14,8 @@ A lightweight, configurable HTTP service for monitoring port availability and he
 ✨ **Simple & Lightweight** - Single binary, minimal dependencies  
 ⚙️ **Configurable** - YAML-based configuration  
 🔍 **Detailed Health Checks** - JSON responses with per-port status  
-🚀 **Production Ready** - Systemd, Docker, Kubernetes support  
+� **Secure** - Optional HTTP Basic Authentication  
+�🚀 **Production Ready** - Systemd, Docker, Kubernetes support  
 
 ## Quick Start
 
@@ -40,6 +41,12 @@ nano /etc/portguard/config.yaml
 server:
   port: "8888"
   timeout: 2s  # Default timeout for all checks
+  
+  # Optional: HTTP Basic Authentication
+  auth:
+    enabled: false  # Set to true to enable
+    username: "admin"
+    password: "secure-password"
 
 checks:
   - host: "mail.example.com"
