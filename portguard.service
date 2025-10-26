@@ -1,0 +1,21 @@
+[Unit]
+Description=PortGuard - Port Monitoring Health Check Service
+Documentation=https://github.com/mrwogu/portguard
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/portguard
+ExecStart=/opt/portguard/portguard --config /etc/portguard/config.yaml
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

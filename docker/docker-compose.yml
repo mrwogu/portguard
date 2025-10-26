@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  portguard:
+    build: .
+    container_name: portguard
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./config.yaml:/etc/portguard/config.yaml:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8888/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge

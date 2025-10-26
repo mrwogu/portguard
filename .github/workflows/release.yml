@@ -1,0 +1,119 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Run tests
+        run: make test
+
+      - name: Run linter
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.1.1
+          make lint
+
+  build:
+    name: Build and Release
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Get version
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "version_number=${VERSION#v}" >> $GITHUB_OUTPUT
+
+      - name: Build for all platforms
+        run: make build-all
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+
+      - name: Package binaries
+        run: |
+          cd dist
+          
+          # Linux AMD64
+          tar -czf portguard-linux-amd64.tar.gz portguard-linux-amd64
+          sha256sum portguard-linux-amd64.tar.gz > portguard-linux-amd64.tar.gz.sha256
+          
+          # Linux ARM64
+          tar -czf portguard-linux-arm64.tar.gz portguard-linux-arm64
+          sha256sum portguard-linux-arm64.tar.gz > portguard-linux-arm64.tar.gz.sha256
+          
+          # Darwin AMD64
+          tar -czf portguard-darwin-amd64.tar.gz portguard-darwin-amd64
+          sha256sum portguard-darwin-amd64.tar.gz > portguard-darwin-amd64.tar.gz.sha256
+          
+          # Darwin ARM64
+          tar -czf portguard-darwin-arm64.tar.gz portguard-darwin-arm64
+          sha256sum portguard-darwin-arm64.tar.gz > portguard-darwin-arm64.tar.gz.sha256
+          
+          # Windows AMD64
+          zip portguard-windows-amd64.zip portguard-windows-amd64.exe
+          sha256sum portguard-windows-amd64.zip > portguard-windows-amd64.zip.sha256
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            # Extract changelog for current version
+            VERSION=${{ steps.version.outputs.version }}
+            awk "/^## \[${VERSION}\]/,/^## \[/" CHANGELOG.md | grep -v "^## \[" | head -n -1 > release_notes.txt
+            if [ ! -s release_notes.txt ]; then
+              echo "Release $VERSION" > release_notes.txt
+              echo "" >> release_notes.txt
+              echo "See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md) for details." >> release_notes.txt
+            fi
+          else
+            echo "Release ${{ steps.version.outputs.version }}" > release_notes.txt
+          fi
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/portguard-linux-amd64.tar.gz
+            dist/portguard-linux-amd64.tar.gz.sha256
+            dist/portguard-linux-arm64.tar.gz
+            dist/portguard-linux-arm64.tar.gz.sha256
+            dist/portguard-darwin-amd64.tar.gz
+            dist/portguard-darwin-amd64.tar.gz.sha256
+            dist/portguard-darwin-arm64.tar.gz
+            dist/portguard-darwin-arm64.tar.gz.sha256
+            dist/portguard-windows-amd64.zip
+            dist/portguard-windows-amd64.zip.sha256
+          body_path: release_notes.txt
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, 'rc') || contains(steps.version.outputs.version, 'beta') || contains(steps.version.outputs.version, 'alpha') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

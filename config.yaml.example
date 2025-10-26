@@ -1,0 +1,76 @@
+# PortGuard Configuration File
+# Default location: /etc/portguard/config.yaml
+
+# HTTP Server Configuration
+server:
+  # Port for the HTTP server to listen on
+  port: "8888"
+  
+  # Timeout for port checks (in seconds)
+  # This value will be parsed as a duration (e.g., 2s, 5s, 100ms)
+  timeout: 2s
+
+# Port Checks Configuration
+# Define all ports that should be monitored
+checks:
+  # SMTP - Mail Transfer
+  - host: "10.0.0.2"
+    port: 25
+    name: "SMTP"
+    description: "Mail Transfer Protocol"
+
+  # SMTP Submission
+  - host: "10.0.0.2"
+    port: 587
+    name: "SMTP Submission"
+    description: "Mail Submission Protocol"
+
+  # SMTPS - SMTP over SSL/TLS
+  - host: "10.0.0.2"
+    port: 465
+    name: "SMTPS"
+    description: "SMTP over SSL/TLS"
+
+  # IMAPS - IMAP over SSL/TLS
+  - host: "10.0.0.2"
+    port: 993
+    name: "IMAPS"
+    description: "IMAP over SSL/TLS"
+
+  # POP3S - POP3 over SSL/TLS
+  - host: "10.0.0.2"
+    port: 995
+    name: "POP3S"
+    description: "POP3 over SSL/TLS"
+
+  # HTTPS - Web Interface
+  - host: "10.0.0.2"
+    port: 443
+    name: "HTTPS"
+    description: "HTTPS Web Interface"
+
+  # ManageSieve
+  - host: "10.0.0.2"
+    port: 4190
+    name: "ManageSieve"
+    description: "Sieve Mail Filtering"
+
+# Examples of other services you might want to monitor:
+#
+# Database
+#  - host: "localhost"
+#    port: 5432
+#    name: "PostgreSQL"
+#    description: "PostgreSQL Database"
+#
+# Redis
+#  - host: "localhost"
+#    port: 6379
+#    name: "Redis"
+#    description: "Redis Cache"
+#
+# Application Server
+#  - host: "localhost"
+#    port: 8080
+#    name: "App Server"
+#    description: "Application HTTP Server"

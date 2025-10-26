@@ -1,0 +1,26 @@
+version: "2"
+# golangci-lint configuration
+# See https://golangci-lint.run/usage/configuration/
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - misspell
+    - gocritic
+    - revive
+
+linters-settings:
+  errcheck:
+    check-blank: true
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
