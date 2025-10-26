@@ -1,12 +1,53 @@
 package main
 
 import (
+	"crypto/subtle"
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
 
 const headerContentType = "Content-Type"
+
+// basicAuthMiddleware wraps an HTTP handler with HTTP Basic Authentication.
+// If authentication is enabled in the config, it validates credentials before calling the handler.
+// Returns 401 Unauthorized if credentials are missing or invalid.
+func basicAuthMiddleware(cfg *Config, next http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		// Skip authentication if disabled
+		if !cfg.Server.Auth.Enabled {
+			next(w, r)
+			return
+		}
+
+		// Skip authentication if no credentials configured
+		if cfg.Server.Auth.Username == "" || cfg.Server.Auth.Password == "" {
+			next(w, r)
+			return
+		}
+
+		username, password, ok := r.BasicAuth()
+		if !ok {
+			w.Header().Set("WWW-Authenticate", `Basic realm="PortGuard"`)
+			w.WriteHeader(http.StatusUnauthorized)
+			_, _ = fmt.Fprintln(w, "Unauthorized")
+			return
+		}
+
+		// Use constant-time comparison to prevent timing attacks
+		usernameMatch := subtle.ConstantTimeCompare([]byte(username), []byte(cfg.Server.Auth.Username)) == 1
+		passwordMatch := subtle.ConstantTimeCompare([]byte(password), []byte(cfg.Server.Auth.Password)) == 1
+
+		if !usernameMatch || !passwordMatch {
+			w.Header().Set("WWW-Authenticate", `Basic realm="PortGuard"`)
+			w.WriteHeader(http.StatusUnauthorized)
+			_, _ = fmt.Fprintln(w, "Unauthorized")
+			return
+		}
+
+		next(w, r)
+	}
+}
 
 func healthHandler(cfg *Config) http.HandlerFunc {
 	return func(w http.ResponseWriter, _ *http.Request) {

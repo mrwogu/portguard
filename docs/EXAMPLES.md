@@ -2,6 +2,38 @@
 
 This directory contains example configurations for various use cases.
 
+## Secured Configuration with HTTP Basic Auth
+
+Protect your PortGuard endpoints with HTTP Basic Authentication:
+
+```yaml
+server:
+  port: "8888"
+  timeout: 2s
+  auth:
+    enabled: true
+    username: "admin"
+    password: "your-secure-password-here"
+
+checks:
+  - host: "localhost"
+    port: 443
+    name: "HTTPS"
+    description: "Web Server HTTPS"
+```
+
+Access the endpoints with authentication:
+
+```bash
+# Using curl with basic auth
+curl -u admin:your-secure-password-here http://localhost:8888/health
+
+# Using wget with basic auth
+wget --user=admin --password=your-secure-password-here http://localhost:8888/health
+```
+
+**Security Note**: Store credentials securely. Consider using environment variables or secret management tools in production environments.
+
 ## Basic Mail Server
 
 Monitor essential mail server ports:

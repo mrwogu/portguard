@@ -12,9 +12,19 @@ type Config struct {
 // ServerConfig holds the HTTP server configuration.
 // Port specifies which port the HTTP server listens on.
 // Timeout sets the maximum duration for port check operations.
+// Auth contains optional HTTP Basic Authentication settings.
 type ServerConfig struct {
 	Port    string        `yaml:"port"`
 	Timeout time.Duration `yaml:"timeout"`
+	Auth    AuthConfig    `yaml:"auth,omitempty"`
+}
+
+// AuthConfig holds HTTP Basic Authentication configuration.
+// When both Username and Password are empty, authentication is disabled.
+type AuthConfig struct {
+	Enabled  bool   `yaml:"enabled"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
 }
 
 // PortCheck defines a single port to monitor.
