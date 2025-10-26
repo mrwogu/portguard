@@ -250,6 +250,69 @@ checks:
     description: "Remote Backup Server"
 ```
 
+## Per-Check Timeout Configuration
+
+Configure different timeouts for each service based on its characteristics:
+
+```yaml
+server:
+  port: "8888"
+  timeout: 2s  # Default timeout
+
+checks:
+  # Fast local services - quick timeout
+  - host: "localhost"
+    port: 6379
+    name: "Redis"
+    description: "Local cache"
+    timeout: 500ms  # Fast check for local service
+  
+  - host: "localhost"
+    port: 11211
+    name: "Memcached"
+    description: "Memory cache"
+    timeout: 500ms
+  
+  # Local services - use default timeout (2s)
+  - host: "localhost"
+    port: 5432
+    name: "PostgreSQL"
+    description: "Database server"
+    # No timeout specified, uses server default (2s)
+  
+  # Remote/slow services - longer timeout
+  - host: "remote-api.example.com"
+    port: 443
+    name: "External API"
+    description: "Third-party API endpoint"
+    timeout: 10s  # Longer timeout for remote service
+  
+  - host: "backup.example.com"
+    port: 873
+    name: "Rsync Backup"
+    description: "Remote backup server"
+    timeout: 15s  # Very long timeout for potentially slow service
+  
+  # Mixed local network services
+  - host: "10.0.1.50"
+    port: 8080
+    name: "Microservice A"
+    description: "Internal service"
+    timeout: 3s
+  
+  - host: "10.0.1.51"
+    port: 8080
+    name: "Microservice B"
+    description: "Internal service"
+    # Uses default timeout
+```
+
+This configuration demonstrates:
+- **Fast checks** (500ms) for local caching services
+- **Default timeout** (2s) for standard services (when not specified)
+- **Long timeouts** (10-15s) for remote or potentially slow services
+- **Custom timeouts** (3s) for specific needs
+
 ## Localhost Development
 
 For local development monitoring:

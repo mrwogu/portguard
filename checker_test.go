@@ -371,3 +371,146 @@ func TestPerformHealthCheckWithError(t *testing.T) {
 		t.Error("Result.Error should not be empty")
 	}
 }
+
+func TestPerformHealthCheckWithPerCheckTimeout(t *testing.T) {
+	// Start test server
+	listener, err := net.Listen("tcp", "127.0.0.1:0")
+	if err != nil {
+		t.Fatalf("Failed to start test server: %v", err)
+	}
+	defer func() { _ = listener.Close() }()
+
+	var testPort int
+	_, portStr, _ := net.SplitHostPort(listener.Addr().String())
+	_, _ = fmt.Sscanf(portStr, "%d", &testPort)
+
+	go func() {
+		for {
+			conn, err := listener.Accept()
+			if err != nil {
+				return
+			}
+			_ = conn.Close()
+		}
+	}()
+
+	cfg := &Config{
+		Server: ServerConfig{
+			Port:    "8888",
+			Timeout: 2 * time.Second, // Default timeout
+		},
+		Checks: []PortCheck{
+			{
+				Host:        "127.0.0.1",
+				Port:        testPort,
+				Name:        "Service with default timeout",
+				Description: "Uses server timeout",
+			},
+			{
+				Host:        "127.0.0.1",
+				Port:        testPort,
+				Name:        "Service with custom timeout",
+				Description: "Uses custom timeout",
+				Timeout:     5 * time.Second, // Override with custom timeout
+			},
+			{
+				Host:        "192.0.2.1", // Non-routable, will timeout
+				Port:        80,
+				Name:        "Slow service with short timeout",
+				Description: "Should timeout quickly",
+				Timeout:     100 * time.Millisecond, // Very short timeout
+			},
+		},
+	}
+
+	status := performHealthCheck(cfg)
+
+	// First two should be healthy, third should timeout
+	if len(status.Checks) != 3 {
+		t.Fatalf("Expected 3 check results, got %d", len(status.Checks))
+	}
+
+	// Check that first service is healthy (uses default timeout)
+	if status.Checks[0].Status != "healthy" {
+		t.Errorf("First check should be healthy, got %q", status.Checks[0].Status)
+	}
+
+	// Check that second service is healthy (uses custom timeout)
+	if status.Checks[1].Status != "healthy" {
+		t.Errorf("Second check should be healthy, got %q", status.Checks[1].Status)
+	}
+
+	// Check that third service is unhealthy (custom short timeout)
+	if status.Checks[2].Status != "unhealthy" {
+		t.Errorf("Third check should be unhealthy, got %q", status.Checks[2].Status)
+	}
+
+	// Overall status should be unhealthy because one check failed
+	if status.Status != "unhealthy" {
+		t.Errorf("Overall status should be unhealthy, got %q", status.Status)
+	}
+}
+
+func TestPerformHealthCheckTimeoutBehavior(t *testing.T) {
+	tests := []struct {
+		name           string
+		serverTimeout  time.Duration
+		checkTimeout   time.Duration
+		expectedFaster time.Duration // Which timeout should be effective
+	}{
+		{
+			name:           "uses server timeout when check timeout is 0",
+			serverTimeout:  2 * time.Second,
+			checkTimeout:   0,
+			expectedFaster: 2 * time.Second,
+		},
+		{
+			name:           "uses check timeout when specified",
+			serverTimeout:  5 * time.Second,
+			checkTimeout:   1 * time.Second,
+			expectedFaster: 1 * time.Second,
+		},
+		{
+			name:           "check timeout can be longer than server timeout",
+			serverTimeout:  500 * time.Millisecond,
+			checkTimeout:   3 * time.Second,
+			expectedFaster: 3 * time.Second,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			cfg := &Config{
+				Server: ServerConfig{
+					Port:    "8888",
+					Timeout: tt.serverTimeout,
+				},
+				Checks: []PortCheck{
+					{
+						Host:        "192.0.2.1", // Non-routable IP for timeout test
+						Port:        80,
+						Name:        "Test Service",
+						Description: "Timeout test",
+						Timeout:     tt.checkTimeout,
+					},
+				},
+			}
+
+			start := time.Now()
+			status := performHealthCheck(cfg)
+			elapsed := time.Since(start)
+
+			// Check should fail due to timeout
+			if status.Checks[0].Status != "unhealthy" {
+				t.Errorf("Check should be unhealthy, got %q", status.Checks[0].Status)
+			}
+
+			// Verify timeout occurred within reasonable bounds
+			// Allow 1 second margin for system delays
+			maxExpected := tt.expectedFaster + 1*time.Second
+			if elapsed > maxExpected {
+				t.Errorf("Check took too long: %v (expected ~%v, max %v)", elapsed, tt.expectedFaster, maxExpected)
+			}
+		})
+	}
+}

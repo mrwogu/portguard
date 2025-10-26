@@ -32,7 +32,13 @@ func performHealthCheck(cfg *Config) HealthStatus {
 			Description: portCheck.Description,
 		}
 
-		err := checkPort(portCheck.Host, portCheck.Port, cfg.Server.Timeout)
+		// Use per-check timeout if specified, otherwise use server timeout
+		timeout := cfg.Server.Timeout
+		if portCheck.Timeout > 0 {
+			timeout = portCheck.Timeout
+		}
+
+		err := checkPort(portCheck.Host, portCheck.Port, timeout)
 		if err != nil {
 			result.Status = "unhealthy"
 			result.Error = err.Error()
