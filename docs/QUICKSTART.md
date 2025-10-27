@@ -284,10 +284,10 @@ If checks are failing:
 
 ## Next Steps
 
-- 📖 Read the full [README](README.md)
+- 📖 Read the full [README](../README.md)
 - 🔧 See [EXAMPLES.md](EXAMPLES.md) for configuration examples
-- 🤝 Check [CONTRIBUTING.md](CONTRIBUTING.md) to contribute
-- 🔒 Review [SECURITY.md](SECURITY.md) for security best practices
+- 🤝 Check [CONTRIBUTING.md](../.github/CONTRIBUTING.md) to contribute
+- 🔒 Review [SECURITY.md](../.github/SECURITY.md) for security best practices
 
 ## Getting Help
 

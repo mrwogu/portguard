@@ -230,5 +230,4 @@ After a successful release:
 
 - Check [GitHub Actions documentation](https://docs.github.com/en/actions)
 - Review workflow files in `.github/workflows/`
-- See [Workflow README](.github/workflows/README.md)
 - Open an issue for automation problems

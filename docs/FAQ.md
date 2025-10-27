@@ -227,7 +227,7 @@ http-check expect status 200
 health_check uri=/health;
 ```
 
-See [README.md](README.md) for more examples.
+See [README.md](../README.md) for more examples.
 
 ### How do I use with Kubernetes?
 
@@ -365,13 +365,13 @@ PortGuard follows security best practices:
 
 ### How do I report security issues?
 
-See [SECURITY.md](SECURITY.md) for our security policy.
+See [SECURITY.md](../.github/SECURITY.md) for our security policy.
 
 ## Development
 
 ### How do I contribute?
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+See [CONTRIBUTING.md](../.github/CONTRIBUTING.md) for guidelines.
 
 ### How do I build from source?
 
@@ -402,7 +402,7 @@ make test
 
 If your question isn't answered here:
 
-1. Check the [README](README.md)
+1. Check the [README](../README.md)
 2. Search [existing issues](https://github.com/mrwogu/portguard/issues)
 3. Ask in [Discussions](https://github.com/mrwogu/portguard/discussions)
 4. [Open a new issue](https://github.com/mrwogu/portguard/issues/new)
