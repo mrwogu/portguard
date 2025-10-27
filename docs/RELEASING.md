@@ -44,13 +44,16 @@ Add a new version section at the top:
 
 ### 2. Test Release Build Locally
 
-```bash
-# Test the complete release build process
-./scripts/test-release.sh v1.2.0
+Use the Make target:
 
-# Or test with current version
-./scripts/test-release.sh
+```bash
+# Test the complete release build process with explicit version
+VERSION=v1.2.0 make release-test
+
+# Or test with auto-detected version (git describe)
+make release-test
 ```
+
 
 This simulates the GitHub Actions workflow and creates artifacts in `dist/`.
 

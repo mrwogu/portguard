@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![CI](https://github.com/mrwogu/portguard/actions/workflows/ci.yml/badge.svg)](https://github.com/mrwogu/portguard/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/mrwogu/portguard/graph/badge.svg?token=8KKR2UY0TS)](https://codecov.io/gh/mrwogu/portguard)
+[![Release](https://img.shields.io/github/v/release/mrwogu/portguard?sort=semver)](https://github.com/mrwogu/portguard/releases/latest)
 
 A lightweight, configurable HTTP service for monitoring port availability and health checking. Perfect for load balancers, Kubernetes health probes, and service monitoring.
 

@@ -395,8 +395,7 @@ make test
 ### Where can I get help?
 
 - 📝 [File an Issue](https://github.com/mrwogu/portguard/issues/new)
-- 💬 [Discussions](https://github.com/mrwogu/portguard/discussions)
-- 📖 [Documentation](https://github.com/mrwogu/portguard)
+- 📚 [Read the Documentation](https://github.com/mrwogu/portguard)
 
 ## Still have questions?
 
@@ -404,5 +403,4 @@ If your question isn't answered here:
 
 1. Check the [README](../README.md)
 2. Search [existing issues](https://github.com/mrwogu/portguard/issues)
-3. Ask in [Discussions](https://github.com/mrwogu/portguard/discussions)
-4. [Open a new issue](https://github.com/mrwogu/portguard/issues/new)
+3. [Open a new issue](https://github.com/mrwogu/portguard/issues/new)

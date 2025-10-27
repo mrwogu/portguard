@@ -1,4 +1,4 @@
-.PHONY: build test clean install run docker-build docker-run help
+.PHONY: build test clean install run docker-build docker-run help release-test
 
 BINARY_NAME=portguard
 VERSION?=$(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
@@ -94,5 +94,30 @@ uninstall: ## Uninstall from system (requires root)
 
 version: ## Show version
 	@echo "$(VERSION)"
+
+release-test: clean ## Simulate release build locally (tests, lint, build-all, package, checksums, verify)
+	@echo "🚀 Testing release build process for version $(VERSION)"
+	@echo ""
+	$(MAKE) test
+	$(MAKE) lint || { echo 'Linter failed'; exit 1; }
+	VERSION=$(VERSION) $(MAKE) build-all
+	@echo "📦 Packaging binaries..."
+	@cd $(BUILD_DIR) && \
+	for f in portguard-linux-amd64 portguard-linux-arm64 portguard-darwin-amd64 portguard-darwin-arm64; do \
+	  tar -czf $$f.tar.gz $$f && shasum -a 256 $$f.tar.gz > $$f.tar.gz.sha256; \
+	done; \
+	zip -q portguard-windows-amd64.zip portguard-windows-amd64.exe && shasum -a 256 portguard-windows-amd64.zip > portguard-windows-amd64.zip.sha256; \
+	echo ""; \
+	echo "✅ Artifacts:"; \
+	ls -1 *.tar.gz *.zip *.sha256 | sed 's/^/  /'; \
+	echo ""; \
+	echo "🔐 Verifying checksums..."; \
+	for c in *.sha256; do shasum -a 256 -c $$c >/dev/null 2>&1 && echo "  ✓ $${c%.sha256}" || echo "  ✗ $${c%.sha256}"; done; \
+	echo ""; \
+	PLATFORM=$$(uname -s | tr '[:upper:]' '[:lower:]'); ARCH=$$(uname -m); [ "$$ARCH" = "x86_64" ] && ARCH=amd64; BIN=portguard-$$PLATFORM-$$ARCH; \
+	if [ -f "$$BIN" ]; then echo "🧪 Running $$BIN --version"; ./$$BIN --version; else echo "⚠️  Binary for this platform not found (expected $$BIN)"; fi; \
+	echo ""; \
+	echo "✅ Release build test complete"; \
+	echo "Next: create tag (git tag -a vX.Y.Z -m 'Release vX.Y.Z' && git push origin vX.Y.Z)"
 
 .DEFAULT_GOAL := help

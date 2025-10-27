@@ -292,7 +292,6 @@ If checks are failing:
 ## Getting Help
 
 - 📝 [File an Issue](https://github.com/mrwogu/portguard/issues/new)
-- 💬 [Join Discussions](https://github.com/mrwogu/portguard/discussions)
 - 📚 [Read the Documentation](https://github.com/mrwogu/portguard)
 
 ---
