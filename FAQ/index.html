@@ -1,0 +1,2007 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Single-binary HTTP health check service for TCP port availability.">
+      
+      
+      
+        <link rel="canonical" href="https://mrwogu.github.io/portguard/FAQ/">
+      
+      
+        <link rel="prev" href="../EXAMPLES/">
+      
+      
+        <link rel="next" href="../RELEASING/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>FAQ - PortGuard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#frequently-asked-questions-faq" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="PortGuard" class="md-header__button md-logo" aria-label="PortGuard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PortGuard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FAQ
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mrwogu/portguard" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrwogu/portguard
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../QUICKSTART/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quickstart
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../EXAMPLES/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Examples
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../RELEASING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Releasing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../SECURITY/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Security
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../license/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  License
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="PortGuard" class="md-nav__button md-logo" aria-label="PortGuard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    PortGuard
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mrwogu/portguard" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    mrwogu/portguard
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICKSTART/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quickstart
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EXAMPLES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-portguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is PortGuard?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-should-i-use-portguard-instead-of-other-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why should I use PortGuard instead of [other tool]?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-portguard-production-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is PortGuard production-ready?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-should-i-put-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where should I put the config file?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-monitor-multiple-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I monitor multiple servers?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-localhost-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor localhost ports?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-timeout-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      What timeout should I use?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-udp-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor UDP ports?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-secure-portguard-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I secure PortGuard endpoints?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-authentication-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is authentication required?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-secure-is-http-basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      How secure is HTTP Basic Auth?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-different-authentication-for-different-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use different authentication for different endpoints?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-enable-authentication-for-kubernetes-health-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Should I enable authentication for Kubernetes health probes?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-install-portguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I install PortGuard?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-run-portguard-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I run PortGuard in Docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-install-as-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I install as a systemd service?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-run-multiple-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I run multiple instances?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-endpoints-are-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      What endpoints are available?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-integrate-with-my-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I integrate with my load balancer?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-use-with-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I use with Kubernetes?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-do-the-status-codes-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do the status codes mean?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-check-only-specific-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I check only specific services?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#portguard-says-a-port-is-unhealthy-but-its-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      PortGuard says a port is unhealthy, but it's working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-8888-is-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port 8888 is already in use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission denied errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config file not found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-enable-debug-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I enable debug logging?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checks-are-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checks are slow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-many-ports-can-i-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      How many ports can I monitor?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-resource-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the resource usage?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-thousands-of-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor thousands of ports?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-portguard-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is PortGuard secure?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-expose-portguard-to-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Should I expose PortGuard to the internet?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-report-security-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I report security issues?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I contribute?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I build from source?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I run tests?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Releasing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECURITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Questions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-portguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is PortGuard?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-should-i-use-portguard-instead-of-other-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why should I use PortGuard instead of [other tool]?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-portguard-production-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is PortGuard production-ready?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-should-i-put-the-config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where should I put the config file?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-monitor-multiple-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I monitor multiple servers?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-localhost-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor localhost ports?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-timeout-should-i-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      What timeout should I use?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-udp-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor UDP ports?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-secure-portguard-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I secure PortGuard endpoints?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is-authentication-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is authentication required?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-secure-is-http-basic-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      How secure is HTTP Basic Auth?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-use-different-authentication-for-different-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I use different authentication for different endpoints?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-enable-authentication-for-kubernetes-health-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Should I enable authentication for Kubernetes health probes?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-install-portguard" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I install PortGuard?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-run-portguard-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I run PortGuard in Docker?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-install-as-a-systemd-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I install as a systemd service?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-run-multiple-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I run multiple instances?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-endpoints-are-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      What endpoints are available?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-integrate-with-my-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I integrate with my load balancer?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-use-with-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I use with Kubernetes?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-do-the-status-codes-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      What do the status codes mean?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-check-only-specific-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I check only specific services?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#portguard-says-a-port-is-unhealthy-but-its-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      PortGuard says a port is unhealthy, but it's working
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-8888-is-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port 8888 is already in use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission denied errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config file not found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-enable-debug-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I enable debug logging?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checks-are-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checks are slow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-many-ports-can-i-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      How many ports can I monitor?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-the-resource-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      What's the resource usage?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#can-i-monitor-thousands-of-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can I monitor thousands of ports?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#is-portguard-secure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Is PortGuard secure?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#should-i-expose-portguard-to-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Should I expose PortGuard to the internet?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-report-security-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I report security issues?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-contribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I contribute?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-build-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I build from source?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-run-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      How do I run tests?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Permanent link">&para;</a></h1>
+<h2 id="general-questions">General Questions<a class="headerlink" href="#general-questions" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-portguard">What is PortGuard?<a class="headerlink" href="#what-is-portguard" title="Permanent link">&para;</a></h3>
+<p>PortGuard is a lightweight HTTP service that monitors TCP port availability. It provides health check endpoints that return JSON status information, making it perfect for load balancers, monitoring systems, and Kubernetes health probes.</p>
+<h3 id="why-should-i-use-portguard-instead-of-other-tool">Why should I use PortGuard instead of [other tool]?<a class="headerlink" href="#why-should-i-use-portguard-instead-of-other-tool" title="Permanent link">&para;</a></h3>
+<p>PortGuard is:
+- <strong>Simple</strong>: Single binary, no dependencies
+- <strong>Fast</strong>: Written in Go for performance
+- <strong>Flexible</strong>: YAML configuration for any ports
+- <strong>Standard</strong>: Returns HTTP 200/503 status codes
+- <strong>Production-ready</strong>: Includes systemd service, Docker support</p>
+<h3 id="is-portguard-production-ready">Is PortGuard production-ready?<a class="headerlink" href="#is-portguard-production-ready" title="Permanent link">&para;</a></h3>
+<p>Yes! PortGuard is designed for production use with:
+- Proper error handling
+- Configurable timeouts
+- Systemd service support
+- Docker support
+- Comprehensive logging</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="where-should-i-put-the-config-file">Where should I put the config file?<a class="headerlink" href="#where-should-i-put-the-config-file" title="Permanent link">&para;</a></h3>
+<p>Default location: <code>/etc/portguard/config.yaml</code></p>
+<p>You can also specify a custom location:
+<div class="highlight"><pre><span></span><code>portguard<span class="w"> </span>--config<span class="w"> </span>/path/to/config.yaml
+</code></pre></div></p>
+<h3 id="how-do-i-monitor-multiple-servers">How do I monitor multiple servers?<a class="headerlink" href="#how-do-i-monitor-multiple-servers" title="Permanent link">&para;</a></h3>
+<p>Add multiple checks in your config:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">checks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server1.example.com&quot;</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Server</span><span class="nv"> </span><span class="s">1&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server2.example.com&quot;</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Server</span><span class="nv"> </span><span class="s">2&quot;</span>
+</code></pre></div>
+<h3 id="can-i-monitor-localhost-ports">Can I monitor localhost ports?<a class="headerlink" href="#can-i-monitor-localhost-ports" title="Permanent link">&para;</a></h3>
+<p>Yes! Just use <code>localhost</code> or <code>127.0.0.1</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">checks</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localhost&quot;</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Local</span><span class="nv"> </span><span class="s">App&quot;</span>
+</code></pre></div>
+<h3 id="what-timeout-should-i-use">What timeout should I use?<a class="headerlink" href="#what-timeout-should-i-use" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Local services</strong>: 1-2s</li>
+<li><strong>Same datacenter</strong>: 2-3s</li>
+<li><strong>Remote services</strong>: 5-10s</li>
+<li><strong>Slow connections</strong>: 10-30s</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span><span class="w">  </span><span class="c1"># Adjust based on your needs</span>
+</code></pre></div>
+<h3 id="can-i-monitor-udp-ports">Can I monitor UDP ports?<a class="headerlink" href="#can-i-monitor-udp-ports" title="Permanent link">&para;</a></h3>
+<p>Not yet. PortGuard currently only supports TCP ports. UDP support is on the roadmap.</p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h3 id="how-do-i-secure-portguard-endpoints">How do I secure PortGuard endpoints?<a class="headerlink" href="#how-do-i-secure-portguard-endpoints" title="Permanent link">&para;</a></h3>
+<p>PortGuard supports HTTP Basic Authentication. Enable it in your config:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8888&quot;</span>
+<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2s</span>
+<span class="w">  </span><span class="nt">auth</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;admin&quot;</span>
+<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your-secure-password&quot;</span>
+</code></pre></div>
+<p>When authentication is enabled, all endpoints (<code>/health</code>, <code>/live</code>, <code>/</code>) require valid credentials.</p>
+<h3 id="is-authentication-required">Is authentication required?<a class="headerlink" href="#is-authentication-required" title="Permanent link">&para;</a></h3>
+<p>No, authentication is <strong>disabled by default</strong>. Enable it only when needed:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">auth</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">  </span><span class="c1"># Default - no authentication required</span>
+</code></pre></div>
+<h3 id="how-secure-is-http-basic-auth">How secure is HTTP Basic Auth?<a class="headerlink" href="#how-secure-is-http-basic-auth" title="Permanent link">&para;</a></h3>
+<p>HTTP Basic Auth sends credentials as base64-encoded strings. For production:</p>
+<ol>
+<li><strong>Always use HTTPS</strong> - Deploy behind a reverse proxy (nginx, Traefik, Caddy) with TLS</li>
+<li><strong>Use strong passwords</strong> - Generate random, long passwords</li>
+<li><strong>Rotate credentials</strong> - Change passwords periodically</li>
+<li><strong>Use secret management</strong> - Store credentials in environment variables or secret managers</li>
+</ol>
+<p>Example with environment variables:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Store password securely</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PORTGUARD_PASSWORD</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">32</span><span class="k">)</span><span class="s2">&quot;</span>
+
+<span class="c1"># Use in config (requires templating or script to inject)</span>
+</code></pre></div>
+<h3 id="can-i-use-different-authentication-for-different-endpoints">Can I use different authentication for different endpoints?<a class="headerlink" href="#can-i-use-different-authentication-for-different-endpoints" title="Permanent link">&para;</a></h3>
+<p>No, currently all endpoints share the same authentication settings. This is intentional to keep the configuration simple.</p>
+<h3 id="should-i-enable-authentication-for-kubernetes-health-probes">Should I enable authentication for Kubernetes health probes?<a class="headerlink" href="#should-i-enable-authentication-for-kubernetes-health-probes" title="Permanent link">&para;</a></h3>
+<p>It depends on your security requirements:</p>
+<ul>
+<li><strong>Without auth</strong>: Simpler, works out-of-the-box with Kubernetes</li>
+<li><strong>With auth</strong>: More secure, requires creating a Secret and configuring probes</li>
+</ul>
+<p>Example Kubernetes probe with authentication:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/live</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8888</span>
+<span class="w">    </span><span class="nt">httpHeaders</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Authorization</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Basic YWRtaW46cGFzc3dvcmQ=</span><span class="w">  </span><span class="c1"># base64 encoded &quot;admin:password&quot;</span>
+</code></pre></div>
+<p>Better approach - use a Secret:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create secret</span>
+kubectl<span class="w"> </span>create<span class="w"> </span>secret<span class="w"> </span>generic<span class="w"> </span>portguard-auth<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">username</span><span class="o">=</span>admin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-literal<span class="o">=</span><span class="nv">password</span><span class="o">=</span>secure-password
+</code></pre></div>
+<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
+<h3 id="how-do-i-install-portguard">How do I install PortGuard?<a class="headerlink" href="#how-do-i-install-portguard" title="Permanent link">&para;</a></h3>
+<p>See the <a href="../QUICKSTART/">Quick Start Guide</a> for detailed instructions. Quick summary:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download binary</span>
+wget<span class="w"> </span>https://github.com/mrwogu/portguard/releases/latest/download/portguard-linux-amd64.tar.gz
+tar<span class="w"> </span>-xzf<span class="w"> </span>portguard-*.tar.gz
+sudo<span class="w"> </span>mv<span class="w"> </span>portguard-*<span class="w"> </span>/usr/local/bin/portguard
+
+<span class="c1"># Create config</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/portguard
+sudo<span class="w"> </span>nano<span class="w"> </span>/etc/portguard/config.yaml
+
+<span class="c1"># Run</span>
+portguard
+</code></pre></div>
+<h3 id="how-do-i-run-portguard-in-docker">How do I run PortGuard in Docker?<a class="headerlink" href="#how-do-i-run-portguard-in-docker" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path/to/config.yaml:/etc/portguard/config.yaml:ro<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/mrwogu/portguard:latest
+</code></pre></div>
+<h3 id="how-do-i-install-as-a-systemd-service">How do I install as a systemd service?<a class="headerlink" href="#how-do-i-install-as-a-systemd-service" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>make<span class="w"> </span>install
+</code></pre></div>
+<p>Or manually:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cp<span class="w"> </span>portguard<span class="w"> </span>/opt/portguard/
+sudo<span class="w"> </span>cp<span class="w"> </span>portguard.service<span class="w"> </span>/etc/systemd/system/
+sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>portguard
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>portguard
+</code></pre></div></p>
+<h3 id="can-i-run-multiple-instances">Can I run multiple instances?<a class="headerlink" href="#can-i-run-multiple-instances" title="Permanent link">&para;</a></h3>
+<p>Yes! Just use different config files and ports:</p>
+<div class="highlight"><pre><span></span><code>portguard<span class="w"> </span>--config<span class="w"> </span>/etc/portguard/config1.yaml<span class="w"> </span><span class="p">&amp;</span>
+portguard<span class="w"> </span>--config<span class="w"> </span>/etc/portguard/config2.yaml<span class="w"> </span><span class="p">&amp;</span>
+</code></pre></div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<h3 id="what-endpoints-are-available">What endpoints are available?<a class="headerlink" href="#what-endpoints-are-available" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>/health</code> - Detailed health status (JSON)</li>
+<li><code>/live</code> - Simple liveness check (text)</li>
+<li><code>/</code> - Information page (HTML)</li>
+</ul>
+<h3 id="how-do-i-integrate-with-my-load-balancer">How do I integrate with my load balancer?<a class="headerlink" href="#how-do-i-integrate-with-my-load-balancer" title="Permanent link">&para;</a></h3>
+<p><strong>HAProxy:</strong>
+<div class="highlight"><pre><span></span><code>option httpchk GET /health
+http-check expect status 200
+</code></pre></div></p>
+<p><strong>Nginx:</strong>
+<div class="highlight"><pre><span></span><code><span class="k">health_check</span><span class="w"> </span><span class="s">uri=/health</span><span class="p">;</span>
+</code></pre></div></p>
+<p>See the <a href="../">README</a> for more examples.</p>
+<h3 id="how-do-i-use-with-kubernetes">How do I use with Kubernetes?<a class="headerlink" href="#how-do-i-use-with-kubernetes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/live</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8888</span>
+<span class="nt">readinessProbe</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health</span>
+<span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8888</span>
+</code></pre></div>
+<h3 id="what-do-the-status-codes-mean">What do the status codes mean?<a class="headerlink" href="#what-do-the-status-codes-mean" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>200 OK</strong>: All monitored ports are healthy</li>
+<li><strong>503 Service Unavailable</strong>: One or more ports are unhealthy</li>
+<li><strong>404 Not Found</strong>: Invalid endpoint</li>
+</ul>
+<h3 id="how-do-i-check-only-specific-services">How do I check only specific services?<a class="headerlink" href="#how-do-i-check-only-specific-services" title="Permanent link">&para;</a></h3>
+<p>Configure only the ports you want to monitor in <code>config.yaml</code>. PortGuard only checks what you configure.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="portguard-says-a-port-is-unhealthy-but-its-working">PortGuard says a port is unhealthy, but it's working<a class="headerlink" href="#portguard-says-a-port-is-unhealthy-but-its-working" title="Permanent link">&para;</a></h3>
+<p>Possible causes:</p>
+<ol>
+<li>
+<p><strong>Firewall</strong>: Check firewall rules
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>iptables<span class="w"> </span>-L
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Network</strong>: Test connectivity
+   <div class="highlight"><pre><span></span><code>telnet<span class="w"> </span>hostname<span class="w"> </span>port
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Timeout</strong>: Increase timeout in config
+   <div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>DNS</strong>: Verify hostname resolution
+   <div class="highlight"><pre><span></span><code>nslookup<span class="w"> </span>hostname
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="port-8888-is-already-in-use">Port 8888 is already in use<a class="headerlink" href="#port-8888-is-already-in-use" title="Permanent link">&para;</a></h3>
+<p>Change the port in config:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;9999&quot;</span>
+</code></pre></div>
+<h3 id="permission-denied-errors">Permission denied errors<a class="headerlink" href="#permission-denied-errors" title="Permanent link">&para;</a></h3>
+<p>Either:
+- Run with sudo: <code>sudo portguard</code>
+- Use a port &gt; 1024 in config
+- Set capabilities: <code>sudo setcap 'cap_net_bind_service=+ep' /path/to/portguard</code></p>
+<h3 id="config-file-not-found">Config file not found<a class="headerlink" href="#config-file-not-found" title="Permanent link">&para;</a></h3>
+<p>Specify the config file explicitly:</p>
+<div class="highlight"><pre><span></span><code>portguard<span class="w"> </span>--config<span class="w"> </span>/path/to/config.yaml
+</code></pre></div>
+<h3 id="how-do-i-enable-debug-logging">How do I enable debug logging?<a class="headerlink" href="#how-do-i-enable-debug-logging" title="Permanent link">&para;</a></h3>
+<p>Currently, PortGuard logs to stdout. Run it in foreground to see logs:</p>
+<div class="highlight"><pre><span></span><code>portguard<span class="w"> </span>--config<span class="w"> </span>config.yaml
+</code></pre></div>
+<p>With systemd:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>portguard<span class="w"> </span>-f
+</code></pre></div></p>
+<h3 id="checks-are-slow">Checks are slow<a class="headerlink" href="#checks-are-slow" title="Permanent link">&para;</a></h3>
+<p>Possible solutions:</p>
+<ol>
+<li>Reduce timeout (if appropriate)</li>
+<li>Check network latency</li>
+<li>Verify target services are responsive</li>
+<li>Use localhost for local services</li>
+</ol>
+<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<h3 id="how-many-ports-can-i-monitor">How many ports can I monitor?<a class="headerlink" href="#how-many-ports-can-i-monitor" title="Permanent link">&para;</a></h3>
+<p>PortGuard can monitor hundreds of ports efficiently. Each check is independent and runs concurrently.</p>
+<h3 id="whats-the-resource-usage">What's the resource usage?<a class="headerlink" href="#whats-the-resource-usage" title="Permanent link">&para;</a></h3>
+<p>Very minimal:
+- <strong>Memory</strong>: ~10-20 MB
+- <strong>CPU</strong>: &lt;1% when idle
+- <strong>Network</strong>: Minimal (only health checks)</p>
+<h3 id="can-i-monitor-thousands-of-ports">Can I monitor thousands of ports?<a class="headerlink" href="#can-i-monitor-thousands-of-ports" title="Permanent link">&para;</a></h3>
+<p>Yes, but consider:
+- Network bandwidth
+- Check frequency (via external monitoring)
+- Target service load</p>
+<h2 id="security_1">Security<a class="headerlink" href="#security_1" title="Permanent link">&para;</a></h2>
+<h3 id="is-portguard-secure">Is PortGuard secure?<a class="headerlink" href="#is-portguard-secure" title="Permanent link">&para;</a></h3>
+<p>PortGuard follows security best practices:
+- No authentication by default (use firewall/proxy)
+- Minimal attack surface
+- No data storage
+- Runs with minimal privileges</p>
+<h3 id="should-i-expose-portguard-to-the-internet">Should I expose PortGuard to the internet?<a class="headerlink" href="#should-i-expose-portguard-to-the-internet" title="Permanent link">&para;</a></h3>
+<p><strong>No!</strong> Use it behind:
+- Firewall rules
+- VPN
+- Reverse proxy with authentication
+- Load balancer</p>
+<h3 id="how-do-i-report-security-issues">How do I report security issues?<a class="headerlink" href="#how-do-i-report-security-issues" title="Permanent link">&para;</a></h3>
+<p>See the <a href="../SECURITY/">Security Policy</a> for our security policy.</p>
+<h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
+<h3 id="how-do-i-contribute">How do I contribute?<a class="headerlink" href="#how-do-i-contribute" title="Permanent link">&para;</a></h3>
+<p>See the <a href="../CONTRIBUTING/">Contributing guide</a> for guidelines.</p>
+<h3 id="how-do-i-build-from-source">How do I build from source?<a class="headerlink" href="#how-do-i-build-from-source" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mrwogu/portguard.git
+<span class="nb">cd</span><span class="w"> </span>portguard
+go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>portguard<span class="w"> </span>main.go
+</code></pre></div>
+<p>Or use Make:
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>build
+</code></pre></div></p>
+<h3 id="how-do-i-run-tests">How do I run tests?<a class="headerlink" href="#how-do-i-run-tests" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 PortGuard Authors
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/mrwogu/portguard" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
