@@ -7,6 +7,8 @@
 
 A lightweight, configurable HTTP service for monitoring port availability and health checking. Perfect for load balancers, Kubernetes health probes, and service monitoring.
 
+![PortGuard](assets/portguard.jpg)
+
 📚 **[Quick Start](docs/QUICKSTART.md)** | 📖 **[Examples](docs/EXAMPLES.md)** | ❓ **[FAQ](docs/FAQ.md)**
 
 ## Features
