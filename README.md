@@ -16,8 +16,8 @@ A lightweight, configurable HTTP service for monitoring port availability and he
 ✨ **Simple & Lightweight** - Single binary, minimal dependencies  
 ⚙️ **Configurable** - YAML-based configuration  
 🔍 **Detailed Health Checks** - JSON responses with per-port status  
-� **Secure** - Optional HTTP Basic Authentication  
-�🚀 **Production Ready** - Systemd, Docker, Kubernetes support  
+🔒 **Secure** - Optional HTTP Basic Authentication  
+🚀 **Production Ready** - Systemd, Docker, Kubernetes support  
 
 ## Quick Start
 

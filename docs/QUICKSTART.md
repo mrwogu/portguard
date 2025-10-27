@@ -132,7 +132,7 @@ docker-compose logs -f
 
 ### Prerequisites
 
-- Go 1.21 or later
+- Go 1.23 or later
 - Git
 
 ### Steps
@@ -158,16 +158,15 @@ nano config.yaml
 
 ## Option 4: Install as System Service (Linux)
 
-### Using the Install Script
+### Using Make (Recommended)
+
+The `Makefile` includes an `install` target that builds the binary, installs it to `/opt/portguard`, installs a default config to `/etc/portguard/config.yaml` if one does not already exist, and copies the systemd service file.
 
 ```bash
-# Build or download binary first
-go build -o portguard main.go
+# Build and install (requires root for system locations)
+sudo make install
 
-# Run install script
-sudo ./scripts/install.sh
-
-# Edit configuration
+# Edit configuration (only if you need changes beyond the example)
 sudo nano /etc/portguard/config.yaml
 
 # Start service
@@ -176,14 +175,17 @@ sudo systemctl start portguard
 # Check status
 sudo systemctl status portguard
 
-# Enable auto-start
+# Enable auto-start on boot
 sudo systemctl enable portguard
 
 # View logs
 sudo journalctl -u portguard -f
+
+# Uninstall (optional)
+sudo make uninstall
 ```
 
-### Manual Installation
+### Manual Installation (Alternative)
 
 ```bash
 # Copy binary
@@ -238,15 +240,13 @@ Example healthy response:
 }
 ```
 
-### 3. Use Test Script
+### 3. Run Built-in Tests
+
+PortGuard includes standard Go tests. Run them with:
 
 ```bash
-# Download test script
-curl -O https://raw.githubusercontent.com/mrwogu/portguard/main/test.sh
-chmod +x test.sh
-
-# Run tests
-./scripts/test.sh
+make test       # Runs tests with race detector and coverage
+make test-coverage  # (Optional) Generates HTML coverage report
 ```
 
 ## Common Issues

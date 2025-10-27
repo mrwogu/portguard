@@ -46,3 +46,5 @@ When deploying PortGuard:
 * PortGuard performs TCP connections to configured hosts - ensure firewall rules are appropriate
 * Configuration files may contain sensitive information (hostnames, ports) - protect with file permissions
 * The HTTP API is unauthenticated by design - use firewall rules or reverse proxy for access control
+* Optional HTTP Basic Authentication is available; enable it when exposing PortGuard outside a trusted network
+* Recommended: terminate TLS at a reverse proxy (nginx/Traefik/Caddy) when using Basic Auth to prevent credential leakage

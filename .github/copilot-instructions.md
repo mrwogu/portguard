@@ -84,7 +84,7 @@ make run                # Uses config.yaml.example
 
 3. **No graceful shutdown**: HTTP server blocks forever; systemd handles SIGTERM. Future enhancement opportunity.
 
-4. **No test files**: The project uses `make test` but has no `*_test.go` files yet. Testing is currently manual via `scripts/test.sh`.
+4. **Tests**: Project now includes standard Go `*_test.go` files. Use `make test` (race + coverage) and `make test-coverage` for HTML report. Manual script-based testing is no longer required.
 
 ## Documentation Structure
 

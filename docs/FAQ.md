@@ -185,7 +185,7 @@ docker run -d \
 ### How do I install as a systemd service?
 
 ```bash
-sudo ./scripts/install.sh
+sudo make install
 ```
 
 Or manually:

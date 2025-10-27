@@ -48,11 +48,15 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 3. Make your changes
 4. Run tests:
    ```bash
-   go test ./...
+   make test
    ```
-5. Run linter:
+5. (Optional) Generate coverage report:
    ```bash
-   golangci-lint run
+   make test-coverage
+   ```
+6. Run linter:
+   ```bash
+   make lint
    ```
 6. Commit your changes:
    ```bash
@@ -75,15 +79,14 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ## Testing
 
-Run all tests:
+Run all tests (race + coverage):
 ```bash
-go test -v ./...
+make test
 ```
 
-Run tests with coverage:
+Generate and view coverage report:
 ```bash
-go test -v -coverprofile=coverage.out ./...
-go tool cover -html=coverage.out
+make test-coverage
 ```
 
 ## Questions?

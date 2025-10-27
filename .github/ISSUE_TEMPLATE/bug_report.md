@@ -26,10 +26,10 @@ If applicable, add logs to help explain your problem.
 Paste logs here
 ```
 
-**Environment:**
+ **Environment:**
  - OS: [e.g. Ubuntu 22.04]
- - PortGuard Version: [e.g. 1.0.0]
- - Go Version (if building from source): [e.g. 1.21]
+ - PortGuard Version: [e.g. 1.1.0]
+ - Go Version (if building from source): [e.g. 1.23]
 
 **Configuration:**
 ```yaml
