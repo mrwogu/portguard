@@ -1,0 +1,76 @@
+site_name: PortGuard
+site_description: Single-binary HTTP health check service for TCP port availability.
+site_url: https://mrwogu.github.io/portguard/
+repo_url: https://github.com/mrwogu/portguard
+repo_name: mrwogu/portguard
+copyright: "Copyright © 2025 PortGuard Authors"
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Quickstart: QUICKSTART.md
+  - Examples: EXAMPLES.md
+  - FAQ: FAQ.md
+  - Releasing: RELEASING.md
+  - Contributing: CONTRIBUTING.md
+  - Security: SECURITY.md
+  - Changelog: changelog.md
+  - License: license.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.snippets:
+      # Allow including files (README, CHANGELOG, LICENSE) from repo root
+      base_path:
+        - .
+        - ..
+      check_paths: false
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.emoji
+
+plugins:
+  - search
+  - include-markdown
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mrwogu/portguard
+      name: GitHub
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn

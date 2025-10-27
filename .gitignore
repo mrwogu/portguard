@@ -49,3 +49,7 @@ config.yaml
 
 # Coverage files
 coverage.txt
+
+# Documentation build artifacts
+site/
+.venv/

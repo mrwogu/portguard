@@ -281,19 +281,3 @@ If checks are failing:
 2. Check if the port is open: `telnet your-host port`
 3. Verify firewall rules
 4. Increase timeout in config if network is slow
-
-## Next Steps
-
-- 📖 Read the full [README](../README.md)
-- 🔧 See [EXAMPLES.md](EXAMPLES.md) for configuration examples
-- 🤝 Check [CONTRIBUTING.md](../.github/CONTRIBUTING.md) to contribute
-- 🔒 Review [SECURITY.md](../.github/SECURITY.md) for security best practices
-
-## Getting Help
-
-- 📝 [File an Issue](https://github.com/mrwogu/portguard/issues/new)
-- 📚 [Read the Documentation](https://github.com/mrwogu/portguard)
-
----
-
-**That's it!** You now have PortGuard monitoring your services. 🎉
